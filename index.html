@@ -56,7 +56,7 @@
                                 <li class="books__bookmarks-items">
                                     <div class="books__items-wrapper">
                                         <div class="books__items-left">
-                                            <h4 class="books__items-heading">Python</h4>
+                                            <h4 class="books__items-heading text--overflow">Python</h4>
                                             <p class="books__items-text text--similarity">David M. Beazley</p>
                                         </div>
                                         
@@ -81,11 +81,11 @@
                                 <div class="books__card">
                                     <div class="books__image-shadow"><img class="books__card-img-top" src="" alt="Card image cap"></div>
                                     <div class="books__card-body">
-                                        <h5 class="books__card-title">Card title</h5>
+                                        <h5 class="books__card-title text--overflow">Card title</h5>
                                         
-                                        <p class="books__card-author text--similarity">Some quick.</p>
+                                        <p class="books__card-author text--similarity"></p>
                                         
-                                        <p class="books__card-date text--similarity">Some quick.</p>
+                                        <p class="books__card-date text--similarity"></p>
                                         
                                         <div class="books__btn-wrapper">
                                             <div class="books__btn-wrapper-top">
@@ -93,7 +93,7 @@
                                                 <button type="button" class="books__btn-info btn-unstyled text--similarities scale">More info</button>
                                             </div>
                                             
-                                            <button href="#" class="books__card-link text--similarities scale btn-unstyled">Read</button>
+                                            <button type="button" class="books__card-link text--similarities scale btn-unstyled" title="read">Read</button>
                                         </div>
                                     </div>
                                 </div>
@@ -104,55 +104,68 @@
             </div>
         </section>
         
-        <!-- <section class="more-info">
-            <div class="more-info__header">
-                <h3 class="more-info__heading heading--similarities">Python</h3>
+        <section class="more-info d-none">
+            <div class="more-info__sticky">
+                <div class="more-info__wrapper">
+                    <div class="more-info__header more-info--similarities">
+                        <h3 class="more-info__heading heading--similarities">Python</h3>
                 
-                <button type="button" title="close" class="more-info__btn-close btn-unstyled scale">
-                    <img src="./img/close.svg" alt="icon" class="more-info__close-img" width="15" height="15">
-                </button>
-            </div>
-            
-            <div class="more-info__body">
-                <div class="more-info__card">
-                    <img class="more-info__card-img-top" src="./img/example.jpg" alt="Card image cap">
-                    
-                    <div class="more-info__card-body">                        
-                        <p class="more-info__card-description">Culpa nulla pariatur cupidatat nisi incididunt ea do ipsum. Incididunt quis mollit elit commodo cillum eiusmod reprehenderit labore irure. Cillum et incididunt et nostrud exercitation quis aute laboris non ut adipisicing. Laboris ad minim aute nulla proident deserunt velit anim sunt aliquip ut sit. Exercitation aliquip ullamco officia non aliqua. Sint deserunt aliquip veniam id eiusmod sit consectetur mollit ea aliqua officia consequat. Magna non mollit nisi est commodo voluptate aute id. Deserunt nostrud id do in nisi mollit deserunt non. Pariatur fugiat cillum irure elit sint nisi ad ipsum culpa deserunt cupidatat esse consequat laboris. Id aliquip non consectetur esse proident duis Lorem.</p>
-
-                        <p class="more-info__card-details text--similarities">Author: 
-                            <span class="more-info__span">Jamal Kasper</span>
-                            <span class="more-info__span">Jamal Kasper</span>
-                        </p>
-                        
-                        <p class="more-info__card-details text--similarities">Author: 
-                            <span class="more-info__span">Jamal Kasper</span>
-                            <span class="more-info__span">Jamal Kasper</span>
-                        </p>
-                        
-                        <p class="more-info__card-details text--similarities">Author: 
-                            <span class="more-info__span">Jamal Kasper</span>
-                            <span class="more-info__span">Jamal Kasper</span>
-                        </p>
-                        
-                        <p class="more-info__card-details text--similarities">Author: 
-                            <span class="more-info__span">Jamal Kasper</span>
-                            <span class="more-info__span">Jamal Kasper</span>
-                        </p>
-                        
-                        <p class="more-info__card-details text--similarities">Author: 
-                            <span class="more-info__span">Jamal Kasper</span>
-                            <span class="more-info__span">Jamal Kasper</span>
-                        </p>
+                        <button type="button" title="close" class="more-info__btn-close btn-unstyled scale">
+                            <img src="./img/close.svg" alt="icon" class="more-info__close-img" width="15" height="15">
+                        </button>
+                    </div>
+                
+                    <div class="more-info__body">
+                        <div class="more-info__card">
+                            <img class="more-info__card-img-top" src="./img/example.jpg" alt="Card image cap">
+                
+                            <div class="more-info__card-body">
+                                <p class="more-info__card-description">Sorry, description is not available</p>
+                                <ul class="more-info__card-list">
+                                    <li class="more-info__card-details text--similarities">Author:
+                                        <div class="more-info__span-wrapper">
+                                            <span class="more-info__authors span"></span>
+                                        </div>
+                                    </li>
+                
+                                    <li class="more-info__card-details text--similarities">Published:
+                                        <div class="more-info__span-wrapper">
+                                            <span class="more-info__date span"></span>
+                                        </div>
+                                    </li>
+                                    <li class="more-info__card-details text--similarities">Publishers:
+                                        <div class="more-info__span-wrapper">
+                                            <span class="more-info__publisher span"></span>
+                                        </div>
+                                    </li>
+                                    <li class="more-info__card-details text--similarities">Category:
+                                        <div class="more-info__span-wrapper">
+                                            <span class="more-info__category span"></span>
+                                        </div>
+                                    </li>
+                                    <li class="more-info__card-details text--similarities">Pages count:
+                                        <div class="more-info__span-wrapper">
+                                            <span class="more-info__pages span"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="more-info__footer more-info--similarities">
+                        <button type="button" title="read button" class="more-info__read-btn btn-unstyled text--similarities scale">Read</button>
                     </div>
                 </div>
-            </div>
-            
-            <div class="more-info__footer">
-                <button type="button" title="read button" class="more-info__read-btn btn-unstyled text--similarities scale">Read</button>
-            </div>
-        </section> -->
+                
+                <div class="more-info__shadow">
+                    <div class="more-info__shadow-background"></div>
+                </div>
+            </div>           
+        </section>
+        
     </main>
+    
     
     <script src="./js/main.js" type="module"></script>
 </body>
