@@ -11,26 +11,35 @@ const wrapper = findElement(".more-info__span-wrapper")
 const moreInfoAuthors = findElement(".more-info__authors")
 
 export function moreInfoHandler(volumeInfo) {
+  wrapper.innerHTML = null
   closeBtn.addEventListener("click", () => {
-    moreInfo.classList.add("d-none")
-    wrapper.innerHTML = null
+    moreInfo.style.display = "none"
+    moreInfo.style.opacity = "0"
   })
 
   shadow.addEventListener("click", () => {
-    moreInfo.classList.add("d-none")
-    wrapper.innerHTML = null
+    moreInfo.style.opacity = "0"
+    moreInfo.style.display = "none"
   })
 
-  moreInfo.classList.remove("d-none")
+  moreInfo.style.display = "block"
+  moreInfo.style.opacity = "1"
+
   const moreInfoTitle = findElement(".more-info__heading")
   moreInfoTitle.textContent = volumeInfo.title
 
   const img = findElement(".more-info__card-img-top")
-  img.src = volumeInfo.imageLinks.thumbnail
+  if (volumeInfo.imageLinks.thumbnail) {
+    img.src = volumeInfo.imageLinks.thumbnail
+  } else {
+    img.src = "./img/img_not_found.jpg"
+  }
 
+  const description = findElement(".more-info__card-description")
   if (volumeInfo.description) {
-    const description = findElement(".more-info__card-description")
     description.textContent = volumeInfo.description
+  } else {
+    description.textContent = "<<not available>>"
   }
 
   if (volumeInfo.authors) {
@@ -38,12 +47,10 @@ export function moreInfoHandler(volumeInfo) {
       for (const item of volumeInfo.authors) {
         const authorsTemplate = moreInfoAuthors.cloneNode("true")
         authorsTemplate.textContent = item
-
         wrapper.appendChild(authorsTemplate)
       }
     } else {
       const authorsTemplate = moreInfoAuthors.cloneNode("true")
-
       authorsTemplate.textContent = volumeInfo.authors
       wrapper.appendChild(authorsTemplate)
     }

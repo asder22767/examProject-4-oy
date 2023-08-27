@@ -9,14 +9,17 @@ elBookmarkList.innerHTML = null
 export let bookmarkID = []
 export let bookmarksData = []
 
-export function bookmarksHandler(newBook, id) {
-  if (bookmarkID.includes(id)) {
-    filterer(id)
-  } else {
-    bookmarkID.push(id)
-    bookmarksData.push(newBook)
-    bookmarksRenderer()
+export function bookmarksHandler(target, newBook, id) {
+  if (newBook && id) {
+    if (bookmarkID.includes(id)) {
+      filterer(id)
+    } else {
+      bookmarkID.push(id)
+      bookmarksData.push(newBook)
+      bookmarksRenderer()
+    }
   }
+  bookmarkedHandler(id)
 }
 
 function filterer(id) {
@@ -25,11 +28,21 @@ function filterer(id) {
   bookmarksRenderer()
 }
 
+function bookmarkedHandler(id) {
+  const btnBookmark = findElement(`#a${id}`)
+  if (bookmarkID.includes(id)) {
+    btnBookmark.style.backgroundColor = "#ffffff"
+  } else {
+    btnBookmark.style.backgroundColor = "#ffd80d"
+  }
+}
+
 export function bookmarksRenderer() {
   elBookmarkList.innerHTML = null
   const fragment = document.createDocumentFragment()
 
   bookmarksData.forEach((bookmark) => {
+    const id = bookmark.id
     const template = elBookmarkTemplate.cloneNode(true)
     const title = findElement(".books__items-heading", template)
     title.textContent = bookmark.title
@@ -46,12 +59,12 @@ export function bookmarksRenderer() {
     }
     template.addEventListener("click", (evt) => {
       if (evt.target.className.includes("books__more-info-img")) {
-        console.log("salm")
         window.location.href = bookmark.previewLink
       }
 
       if (evt.target.className.includes("books__delete-img")) {
-        filterer(bookmark.id)
+        filterer(id)
+        bookmarkedHandler(id)
       }
     })
     fragment.appendChild(template)

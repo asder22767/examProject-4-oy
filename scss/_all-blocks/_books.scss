@@ -142,8 +142,10 @@
     font-weight: 500;
     padding: 10px 26px;
     background-color: #ffd80d;
+    border: 1px #ffd80d solid;
     border-radius: 4px;
     color: #000000;
+    transition: background 0.7s ease;
   }
 
   &__btn-info {

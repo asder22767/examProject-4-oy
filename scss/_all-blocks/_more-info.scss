@@ -1,4 +1,6 @@
 .more-info {
+  display: none;
+  transition: all 1s ease;
   &__wrapper {
     display: flex;
     flex-direction: column;

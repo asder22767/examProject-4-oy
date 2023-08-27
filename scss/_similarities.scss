@@ -34,10 +34,6 @@
   line-height: 28px;
 }
 
-.d-none {
-  display: none;
-}
-
 .more-info--similarities {
   display: flex;
   justify-content: space-between;
@@ -63,4 +59,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.opacity-zero {
+  opacity: 0;
+}
+
+.opacity-full {
+  opacity: 1;
+  transition: all 5s ease;
 }

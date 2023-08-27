@@ -3,6 +3,7 @@ import BASE_URL from "./utils/urls.js"
 import apiKey from "./utils/apiKey.js"
 import { bookmarksHandler, bookmarksRenderer } from "./utils/bookmarks.js"
 import { moreInfoHandler } from "./utils/moreInfoRenderer.js"
+import { bookmarkID } from "./utils/bookmarks.js"
 
 const elSearchForm = findElement(".header__form")
 
@@ -12,27 +13,12 @@ const elLogout = findElement(".header__btn-logout")
 const elCounter = findElement(".header__results")
 const elDateFilter = findElement(".header__btn-date-filter")
 
-const elBookmarkList = findElement(".books__bookmarks-list")
-const elBookmarkTemplate = findElement(".books__bookmarks-items")
-
 const elSearchResultsList = findElement(".books__search-list")
 const elSearchResultsItems = findElement(".books__search-items")
 elSearchResultsList.innerHTML = null
 
-const moreInfo = findElement(".more-info")
-// const moreInfoWrapper = findElement(".more-info__wrapper")
-const btnRead = findElement(".more-info__read-btn")
-
-const closeBtn = findElement(".more-info__btn-close")
-const shadow = findElement(".more-info__shadow")
-
-const authorsSection = findElement(".more-info__card-details")
-const wrapper = findElement(".more-info__span-wrapper")
-const moreInfoAuthors = findElement(".more-info__authors")
-
 function productRenderer(data) {
   const arr = data.items
-
   const fragment = document.createDocumentFragment()
 
   arr.forEach(({ volumeInfo, id }) => {
@@ -66,8 +52,11 @@ function productRenderer(data) {
       date.textContent = "<<no publishing date>>"
     }
 
+    const btnBookmark = findElement(".books__btn-bookmark", template)
+    btnBookmark.id = `a${id}`
     template.addEventListener("click", (evt) => {
       if (evt.target.className.includes("books__btn-bookmark")) {
+        const target = evt.target
         class newBookmark {
           constructor(title, authors, previewLink, id) {
             this.title = title
@@ -83,7 +72,7 @@ function productRenderer(data) {
           id: id,
         }
 
-        bookmarksHandler(newBook, id)
+        bookmarksHandler(target, newBook, id)
       }
 
       if (evt.target.className.includes("books__btn-info")) {
